@@ -2,7 +2,7 @@ var frog;
 var sqaureSide=120;
 
 function preload(){
-  frog=loadImage("B-bishop.png");
+  frog=loadImage('B-bishop.png');
 }
 
 
