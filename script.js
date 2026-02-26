@@ -19,7 +19,6 @@ function drawBoard(){
   for(var g=0;g<5;g++){
     rect(100+g*200,30,200,200);
   }
-  image(frog,500,30,200,200);
 }
 
 function draw() {
