@@ -2,7 +2,7 @@ var frog;
 var sqaureSide=120;
 
 function preload(){
-  frog=loadImage("https://cdn.glitch.global/8eada658-7bdb-44f6-b46c-3ff43130d13b/Screen%20Shot%202023-11-15%20at%202.40.44%20PM.png?v=1700077264044");
+  frog=loadImage("B-bishop.png");
 }
 
 
