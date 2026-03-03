@@ -76,8 +76,8 @@ function pickBlack(){
   strokeWeight(3);
   fill(255)
   for(var g=0;g<3;g++){
-    rect(100+g*200,30,200,200);
-    image(blackPieces[theseIndexes[g]],100+g*200,30,200,200);
+    rect(100+g*200,300,200,200);
+    image(blackPieces[theseIndexes[g]],100+g*200,300,200,200);
   }
 }
 
