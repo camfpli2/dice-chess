@@ -1,5 +1,7 @@
 var B_bishop; var B_rook; var B_knight; var B_king; var B_queen; var B_pawn;
 var W_bishop; var W_rook; var W_knight; var W_king; var W_queen; var W_pawn;
+var blackPieces=[];
+var whitePieces=[];
 var sqaureSide=120;
 
 function preload(){
@@ -19,13 +21,30 @@ function preload(){
 
 
 
-function setup() {          
+function setup() {    
+  for(var g=0; g<8; g++){
+    blackPieces.push(B_pawn);
+    whitePieces.push(W_pawn);
+  }
+  for(var k=0; k<2; k++){
+    blackPieces.push(B_rook);
+    whitePieces.push(W_rook);
+    blackPieces.push(B_knight);
+    whitePieces.push(W_knight);
+    blackPieces.push(B_bishop);
+    whitePieces.push(W_bishop);
+  }
+  blackPieces.push(B_king);
+  whitePieces.push(W_king);
+  blackPieces.push(B_queen);
+  whitePieces.push(W_queen);
+  
   createCanvas(1200, 600);
   background(129, 30, 70);
-  drawBoard();
 }
 
-function drawBoard(){
+function pickWhite(){
+  var ind=random();
   stroke(0);
   strokeWeight(3);
   fill(255)
@@ -50,11 +69,11 @@ function touchEnded() {
 }
 
 function keyTyped() {     
-  if (key === 'o'){
-
+  if (key === 'w'){
+    pickWhite();
   }
-  else if (key === 'f'){
-
+  else if (key === 'b'){
+    pickBlack();
   }
   
 }
