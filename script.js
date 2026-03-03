@@ -31,7 +31,7 @@ function drawBoard(){
   fill(255)
   for(var g=0;g<3;g++){
     rect(100+g*200,30,200,200);
-    image(B_king,100+g*200,30,200,200);
+    image(W_king,100+g*200,30,200,200);
   }
 }
 
