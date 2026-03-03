@@ -43,7 +43,21 @@ function setup() {
   background(129, 30, 70);
 }
 
+
+function getThreeDistinctRandomInts() {
+  const result = new Set();
+
+  while (result.size < 3) {
+    const randomNum = Math.floor(Math.random() * 16); // 0–15 inclusive
+    result.add(randomNum);
+  }
+
+  return Array.from(result);
+}
+
 function pickWhite(){
+  var theseIndexes=getThreeDistinctRandomInts();
+  console.log(theseIndexes);
   var ind=random();
   stroke(0);
   strokeWeight(3);
@@ -52,10 +66,6 @@ function pickWhite(){
     rect(100+g*200,30,200,200);
     image(W_king,100+g*200,30,200,200);
   }
-}
-
-function draw() {
-  
 }
 
 
