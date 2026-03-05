@@ -46,6 +46,7 @@ function setup() {
 function getRandomInt() {  //return one random index from 8 thru 15 inclusive in case we need to fix triple pawn
   const min = 8;
   const max = 15;
+  console.log(Math.floor(Math.random() * (max - min + 1)) + min);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
