@@ -22,11 +22,11 @@ function preload(){
 
 
 function setup() {    
-  for(var g=0; g<8; g++){
+  for(var g=0; g<8; g++){    //pawn pieces will be index 0 thru 7 for each color
     blackPieces.push(B_pawn);
     whitePieces.push(W_pawn);
   }
-  for(var k=0; k<2; k++){
+  for(var k=0; k<2; k++){    //these pieces will be indexes 8 thru 13 for each color
     blackPieces.push(B_rook);
     whitePieces.push(W_rook);
     blackPieces.push(B_knight);
@@ -34,13 +34,19 @@ function setup() {
     blackPieces.push(B_bishop);
     whitePieces.push(W_bishop);
   }
-  blackPieces.push(B_king);
+  blackPieces.push(B_king);   //royalty pieces will be indexes 14 and 15 for each color
   whitePieces.push(W_king);
   blackPieces.push(B_queen);
   whitePieces.push(W_queen);
   
   createCanvas(1200, 600);
   background(129, 30, 70);
+}
+
+function getRandomInt() {  //return one random index from 8 thru 15 inclusive in case we need to fix triple pawn
+  const min = 8;
+  const max = 15;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 
@@ -58,7 +64,10 @@ function getThreeDistinctRandomInts() {
 function pickWhite(){
   background(129, 30, 70);
   var theseIndexes=getThreeDistinctRandomInts();
-  var ind=random();
+  var replacementIndex=getRandomInt();
+  if(theseIndexes[0]<8 && theseIndexes[1]<8 && theseIndexes[2]<8){    //the dreaded triple pawn
+    theseIndexes[2]=whitePieces[replacementIndex];
+  }
   stroke(0);
   strokeWeight(3);
   fill(255)
@@ -71,7 +80,10 @@ function pickWhite(){
 function pickBlack(){
   background(129, 30, 70);
   var theseIndexes=getThreeDistinctRandomInts();
-  var ind=random();
+  var replacementIndex=getRandomInt();
+  if(theseIndexes[0]<8 && theseIndexes[1]<8 && theseIndexes[2]<8){    //the dreaded triple pawn
+    theseIndexes[2]=blackPieces[replacementIndex];
+  }
   stroke(0);
   strokeWeight(3);
   fill(255)
