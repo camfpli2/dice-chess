@@ -123,6 +123,9 @@ function pickBlack(){
 }
 
 function showFreqs(){
+  fill(190);
+  stroke(200,90,60);
+  rect(800,5,250,500,6);
   textSize(20);
   noStroke();
   var boardIndexes=[0,8,10,12,14,15];
