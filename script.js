@@ -62,9 +62,25 @@ function draw(){
   noStroke();
   rect(820,10,80,500);
   fill(255);
-  text(wMillisLeft,830,40);
+  text(getTimerText(wMillisLeft),830,40);
   fill(0);
-  text(bMillisLeft,830,280);
+  text(getTimerText(bMillisLeft),830,280);
+}
+
+function getTimerText(n) {
+  // 1. Convert n (frames) into total seconds left
+  // Using Math.ceil ensures the timer doesn't hit 0 until n is exactly 0
+  let totalSeconds = Math.ceil(n / 60);
+
+  // 2. Calculate minutes and remaining seconds
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+
+  // 3. Add a leading zero to seconds if it's less than 10 (e.g., "5:09")
+  let formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+
+  // 4. Return the formatted m:s string
+  return minutes + ':' + formattedSeconds;
 }
 
 function getRandomInt() {  //return one random index from 8 thru 15 inclusive in case we need to fix triple pawn
