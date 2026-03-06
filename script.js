@@ -65,7 +65,11 @@ function getThreeDistinctRandomInts() {
 function pickWhite(){
   background(129, 30, 70);
   var theseIndexes=getThreeDistinctRandomInts();
-
+  var replacementIndex = getRandomInt();
+  if(theseIndexes[0]<8 && theseIndexes[1]<8 && theseIndexes[2]<8){
+    theseIndexes.splice(2,1);
+    theseIndexes.push(replacementIndex);
+    }
   stroke(0);
   strokeWeight(3);
   fill(255)
