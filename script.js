@@ -112,10 +112,11 @@ function pickBlack(){
 
 function showFreqs(){
   textSize(20);
+  noStroke();
   var boardIndexes=[0,8,10,12,14,15];
   for(t=0;t<boardIndexes.length;t++){
-    image(whitePieces[boardIndexes[t]],1000,30+36*t,36,36);
-    image(blackPieces[boardIndexes[t]],1000,300+36*t,36,36);
+    image(whitePieces[boardIndexes[t]],1000,57+36*t,36,36);
+    image(blackPieces[boardIndexes[t]],1000,327+36*t,36,36);
     fill(0);
     text(blackFreqs[t],1050,309+36*t);
     fill(255);
