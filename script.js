@@ -60,11 +60,11 @@ function draw(){
   }
   fill(129, 30, 70);
   noStroke();
-  rect(850,10,80,500);
+  rect(820,10,80,500);
   fill(255);
-  text(wMillisLeft,860,40);
+  text(wMillisLeft,830,40);
   fill(0);
-  text(bMillisLeft,860,280);
+  text(bMillisLeft,830,280);
 }
 
 function getRandomInt() {  //return one random index from 8 thru 15 inclusive in case we need to fix triple pawn
