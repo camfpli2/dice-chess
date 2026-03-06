@@ -91,6 +91,12 @@ function pickWhite(){
   strokeWeight(3);
   fill(255)
   for(var g=0;g<3;g++){
+    if(theseIndexes[g]<8){whiteFreqs[0]++;}
+    else if(theseIndexes[g]<10){whiteFreqs[1]++;}
+    else if(theseIndexes[g]<12){whiteFreqs[2]++;}
+    else if(theseIndexes[g]<14){whiteFreqs[3]++;}
+    else if(theseIndexes[g]===14){whiteFreqs[4]++;}
+    else if(theseIndexes[g]===15){whiteFreqs[5]++;}
     rect(100+g*200,30,200,200);
     image(whitePieces[theseIndexes[g]],100+g*200,30,200,200);
     showFreqs();
@@ -125,7 +131,7 @@ function pickBlack(){
 function showFreqs(){
   fill(190);
   stroke(200,90,60);
-  rect(800,5,250,500,6);
+  rect(920,5,250,550,8);
   textSize(20);
   noStroke();
   var boardIndexes=[0,8,10,12,14,15];
