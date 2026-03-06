@@ -107,7 +107,8 @@ function pickBlack(){
 function showFreqs(){
   var boardIndexes=[0,8,10,12,14,15];
   for(t=0;t<boardIndexes.length;t++){
-    image(whitePieces[boardIndexes[t]],1000,20+20*t,20,20);
+    image(whitePieces[boardIndexes[t]],1000,20+36*t,36,36);
+    image(blackPieces[boardIndexes[t]],1000,240+36*t,36,36);
   }
 }
 
