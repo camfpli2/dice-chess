@@ -65,10 +65,7 @@ function getThreeDistinctRandomInts() {
 function pickWhite(){
   background(129, 30, 70);
   var theseIndexes=getThreeDistinctRandomInts();
-  var replacementIndex=getRandomInt();
-  if(theseIndexes[0]<8 && theseIndexes[1]<8 && theseIndexes[2]<8){    //the dreaded triple pawn
-    theseIndexes[2]=whitePieces[replacementIndex];
-  }
+
   stroke(0);
   strokeWeight(3);
   fill(255)
@@ -81,9 +78,11 @@ function pickWhite(){
 function pickBlack(){
   background(129, 30, 70);
   var theseIndexes=getThreeDistinctRandomInts();
-  var replacementIndex=getRandomInt();
-  if(theseIndexes[0]<8 && theseIndexes[1]<8 && theseIndexes[2]<8){    //the dreaded triple pawn
-    theseIndexes[2]=blackPieces[replacementIndex];
+  var replacementIndex = getRandomInt();
+  if(theseIndexes[0]<8 && theseIndexes[1]<8 && theseIndexes[2]<8){
+    theseIndexes.splice(2,1);
+    thesendexes.push(replacementIndex);
+    
   }
   stroke(0);
   strokeWeight(3);
