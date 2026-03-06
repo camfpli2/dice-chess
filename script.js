@@ -4,7 +4,8 @@ var blackPieces=[];
 var whitePieces=[];
 var sqaureSide=120;
 var whitesTurn=true;
-
+var whiteFreqs=[0,0,0,0,0,0];  //for history, both colors orders will be
+var blackFreqs=[0,0,0,0,0,0];  // [pawns, rooks, knights, bishops, queens, kings]
 function preload(){
   B_bishop=loadImage('B_bishop.png');
   B_rook=loadImage('B_rook.png');
