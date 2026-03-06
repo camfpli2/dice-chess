@@ -51,14 +51,14 @@ function setup() {
   background(129, 30, 70);
 }
 
-// draw(){
-//   if(started && whitesTurn){
+function draw(){
+  if(started && whitesTurn){
     
-//   }
-//   if(started && blacksTurn){
+  }
+  if(started && blacksTurn){
     
-//   }
-// }
+  }
+}
 
 function getRandomInt() {  //return one random index from 8 thru 15 inclusive in case we need to fix triple pawn
   const min = 8;
@@ -130,9 +130,9 @@ function showFreqs(){
     image(whitePieces[boardIndexes[t]],1000,20+36*t,36,36);
     image(blackPieces[boardIndexes[t]],1000,290+36*t,36,36);
     fill(0);
-    text(blackFreqs[t],1050,320+36*t);
+    text(blackFreqs[t],1050,315+36*t);
     fill(255);
-    text(whiteFreqs[t],1050,50+36*t);  
+    text(whiteFreqs[t],1050,45+36*t);  
   }
 }
 
