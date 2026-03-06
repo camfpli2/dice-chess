@@ -3,7 +3,7 @@ var W_bishop; var W_rook; var W_knight; var W_king; var W_queen; var W_pawn;
 var blackPieces=[];
 var whitePieces=[];
 var sqaureSide=120;
-var whitesTurn=true;
+var whitesTurn=false;
 var whiteFreqs=[0,0,0,0,0,0];  //for history, both colors orders will be
 var blackFreqs=[0,0,0,0,0,0];  // [pawns, rooks, knights, bishops, queens, kings]
 
