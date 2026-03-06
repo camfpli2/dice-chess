@@ -81,6 +81,7 @@ function pickWhite(){
   for(var g=0;g<3;g++){
     rect(100+g*200,30,200,200);
     image(whitePieces[theseIndexes[g]],100+g*200,30,200,200);
+    showFreqs();
   }
 }
 
@@ -99,6 +100,13 @@ function pickBlack(){
   for(var g=0;g<3;g++){
     rect(100+g*200,300,200,200);
     image(blackPieces[theseIndexes[g]],100+g*200,300,200,200);
+    showFreqs();
+  }
+}
+
+function showFreqs(){
+  for(var t=0; t<whitePieces.length; t++){
+      image(whitePieces[theseIndexes[g]],1000,20+t*20,20,20);
   }
 }
 
