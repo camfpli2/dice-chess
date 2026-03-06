@@ -112,7 +112,7 @@ function touchEnded() {
 
 function keyTyped() {     
   if (key === ' '){
-    if(whitesTurn){pickBlack();}
-    else{pickWhite();}
+    if(whitesTurn){pickBlack(); whitesTurn=false;}
+    else{pickWhite(); whitesTurn=true;}
   }
 }
