@@ -39,10 +39,10 @@ function setup() {
     blackPieces.push(B_bishop);
     whitePieces.push(W_bishop);
   }
-  blackPieces.push(B_king);   //royalty pieces will be indexes 14 and 15 for each color
-  whitePieces.push(W_king);
-  blackPieces.push(B_queen);
+  blackPieces.push(B_queen);   //royalty pieces will be indexes 14 and 15 for each color
   whitePieces.push(W_queen);
+  blackPieces.push(B_king);
+  whitePieces.push(W_king);
   
   createCanvas(1200, 600);
   background(129, 30, 70);
@@ -98,6 +98,12 @@ function pickBlack(){
   strokeWeight(3);
   fill(255)
   for(var g=0;g<3;g++){
+    if(theseIndexes[g]<8){blackFreqs[0]++;}
+    else if(theseIndexes[g]<10){blackFreqs[1]++;}
+    else if(theseIndexes[g]<12){blackFreqs[2]++;}
+    else if(theseIndexes[g]<14){blackFreqs[3]++;}
+    else if(theseIndexes[g]===14){blackFreqs[4]++;}
+    else if(theseIndexes[g]===15){blackFreqs[5]++;}
     rect(100+g*200,300,200,200);
     image(blackPieces[theseIndexes[g]],100+g*200,300,200,200);
     showFreqs();
@@ -109,6 +115,7 @@ function showFreqs(){
   for(t=0;t<boardIndexes.length;t++){
     image(whitePieces[boardIndexes[t]],1000,30+36*t,36,36);
     image(blackPieces[boardIndexes[t]],1000,300+36*t,36,36);
+    text(blackFreqs[t],1000,300+36*t);
   }
 }
 
