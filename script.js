@@ -3,6 +3,7 @@ var W_bishop; var W_rook; var W_knight; var W_king; var W_queen; var W_pawn;
 var blackPieces=[];
 var whitePieces=[];
 var sqaureSide=120;
+var whitesTurn=true;
 
 function preload(){
   B_bishop=loadImage('B_bishop.png');
@@ -18,6 +19,8 @@ function preload(){
   W_queen=loadImage('W_queen.png');
   W_pawn=loadImage('W_pawn.png');
 }
+
+
 
 
 
@@ -108,11 +111,8 @@ function touchEnded() {
 }
 
 function keyTyped() {     
-  if (key === 'w'){
-    pickWhite();
+  if (key === ' '){
+    if(whitesTurn){pickBlack();}
+    else{pickWhite();}
   }
-  else if (key === 'b'){
-    pickBlack();
-  }
-  
 }
