@@ -81,7 +81,7 @@ function pickBlack(){
   var replacementIndex = getRandomInt();
   if(theseIndexes[0]<8 && theseIndexes[1]<8 && theseIndexes[2]<8){
     theseIndexes.splice(2,1);
-    thesendexes.push(replacementIndex);
+    theseIndexes.push(replacementIndex);
     
   }
   stroke(0);
