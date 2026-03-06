@@ -62,6 +62,7 @@ function draw(){
   noStroke();
   rect(820,10,80,500);
   fill(255);
+  textSize(20);
   text(getTimerText(wMillisLeft),830,40);
   fill(0);
   text(getTimerText(bMillisLeft),830,280);
