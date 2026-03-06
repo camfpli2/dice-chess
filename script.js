@@ -130,9 +130,9 @@ function showFreqs(){
     image(whitePieces[boardIndexes[t]],1000,20+36*t,36,36);
     image(blackPieces[boardIndexes[t]],1000,290+36*t,36,36);
     fill(0);
-    text(blackFreqs[t],1050,340+36*t);
+    text(blackFreqs[t],1050,300+36*t);
     fill(255);
-    text(whiteFreqs[t],1050,70+36*t);  
+    text(whiteFreqs[t],1050,30+36*t);  
   }
 }
 
