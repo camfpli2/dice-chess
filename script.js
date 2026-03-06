@@ -127,12 +127,12 @@ function showFreqs(){
   noStroke();
   var boardIndexes=[0,8,10,12,14,15];
   for(t=0;t<boardIndexes.length;t++){
-    image(whitePieces[boardIndexes[t]],1000,57+36*t,36,36);
-    image(blackPieces[boardIndexes[t]],1000,327+36*t,36,36);
+    image(whitePieces[boardIndexes[t]],1000,20+36*t,36,36);
+    image(blackPieces[boardIndexes[t]],1000,290+36*t,36,36);
     fill(0);
-    text(blackFreqs[t],1050,345+36*t);
+    text(blackFreqs[t],1050,395+36*t);
     fill(255);
-    text(whiteFreqs[t],1050,75+36*t);  
+    text(whiteFreqs[t],1050,125+36*t);  
   }
 }
 
