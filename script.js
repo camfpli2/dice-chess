@@ -3,9 +3,12 @@ var W_bishop; var W_rook; var W_knight; var W_king; var W_queen; var W_pawn;
 var blackPieces=[];
 var whitePieces=[];
 var sqaureSide=120;
+var started=false;
 var whitesTurn=false;
 var whiteFreqs=[0,0,0,0,0,0];  //for history, both colors orders will be
 var blackFreqs=[0,0,0,0,0,0];  // [pawns, rooks, knights, bishops, queens, kings]
+var bMillisLeft=18000;
+var wMillisLeft=18000;  //5 minutes per player, to be adjustable later
 
 function preload(){
   B_bishop=loadImage('B_bishop.png');
@@ -46,6 +49,15 @@ function setup() {
   
   createCanvas(1200, 600);
   background(129, 30, 70);
+}
+
+draw(){
+  if(started && whitesTurn){
+    
+  }
+  if(started && blacksTurn){
+    
+  }
 }
 
 function getRandomInt() {  //return one random index from 8 thru 15 inclusive in case we need to fix triple pawn
@@ -118,9 +130,9 @@ function showFreqs(){
     image(whitePieces[boardIndexes[t]],1000,57+36*t,36,36);
     image(blackPieces[boardIndexes[t]],1000,327+36*t,36,36);
     fill(0);
-    text(blackFreqs[t],1050,309+36*t);
+    text(blackFreqs[t],1050,345+36*t);
     fill(255);
-    text(whiteFreqs[t],1050,39+36*t);  
+    text(whiteFreqs[t],1050,75+36*t);  
   }
 }
 
@@ -137,6 +149,7 @@ function touchEnded() {
 
 function keyTyped() {     
   if (key === ' '){
+    started=true;
     if(whitesTurn){pickBlack(); whitesTurn=false;}
     else{pickWhite(); whitesTurn=true;}
   }
