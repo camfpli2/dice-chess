@@ -51,14 +51,14 @@ function setup() {
   background(129, 30, 70);
 }
 
-draw(){
-  if(started && whitesTurn){
+// draw(){
+//   if(started && whitesTurn){
     
-  }
-  if(started && blacksTurn){
+//   }
+//   if(started && blacksTurn){
     
-  }
-}
+//   }
+// }
 
 function getRandomInt() {  //return one random index from 8 thru 15 inclusive in case we need to fix triple pawn
   const min = 8;
