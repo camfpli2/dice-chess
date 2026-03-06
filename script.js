@@ -55,7 +55,7 @@ function draw(){
   if(started && whitesTurn){
     wMillisLeft--;
   }
-  if(started && blacksTurn){
+  if(started && whitesTurn===false){
     bMillisLeft--;
   }
   fill(129, 30, 70);
