@@ -9,6 +9,7 @@ var whiteFreqs=[0,0,0,0,0,0];  //for history, both colors orders will be
 var blackFreqs=[0,0,0,0,0,0];  // [pawns, rooks, knights, bishops, queens, kings]
 var bMillisLeft=18000;
 var wMillisLeft=18000;  //5 minutes per player, to be adjustable later
+var bkg=[129, 40, 70];
 
 function preload(){
   B_bishop=loadImage('B_bishop.png');
@@ -29,15 +30,15 @@ function preload(){
 
 
 
-function setup() {    
+function setup() {
   for(var g=0; g<8; g++){    //pawn pieces will be index 0 thru 7 for each color
     blackPieces.push(B_pawn);
     whitePieces.push(W_pawn);
   }
   for(var k=0; k<2; k++){    //these pieces will be indexes 8 thru 13 for each color
-    blackPieces.push(B_rook);
-    whitePieces.push(W_rook);
-    blackPieces.push(B_knight);
+    blackPieces.push(B_rook);  //rooks indexes are 8 and 11
+    whitePieces.push(W_rook);  //knights indexes are 9 and 12
+    blackPieces.push(B_knight);  //bishops indexes are 10 and 13
     whitePieces.push(W_knight);
     blackPieces.push(B_bishop);
     whitePieces.push(W_bishop);
@@ -48,7 +49,8 @@ function setup() {
   whitePieces.push(W_king);
   
   createCanvas(1200, 600);
-  background(129, 30, 70);
+  background(bkg);
+  showFreqs();
 }
 
 function draw(){
@@ -58,14 +60,14 @@ function draw(){
   if(started && whitesTurn===false){
     bMillisLeft--;
   }
-  fill(129, 30, 70);
+  fill(bkg);
   noStroke();
-  rect(820,10,80,500);
+  rect(790,10,90,500);
   fill(255);
-  textSize(20);
-  text(getTimerText(wMillisLeft),830,40);
+  textSize(40);
+  text(getTimerText(wMillisLeft),800,140);
   fill(0);
-  text(getTimerText(bMillisLeft),830,280);
+  text(getTimerText(bMillisLeft),800,380);
 }
 
 function getTimerText(n) {
@@ -104,7 +106,7 @@ function getThreeDistinctRandomInts() {
 }
 
 function pickWhite(){
-  background(129, 30, 70);
+  background(bkg);
   var theseIndexes=getThreeDistinctRandomInts();
   var replacementIndex = getRandomInt();
   if(theseIndexes[0]<8 && theseIndexes[1]<8 && theseIndexes[2]<8){
@@ -116,19 +118,19 @@ function pickWhite(){
   fill(255)
   for(var g=0;g<3;g++){
     if(theseIndexes[g]<8){whiteFreqs[0]++;}
-    else if(theseIndexes[g]<10){whiteFreqs[1]++;}
-    else if(theseIndexes[g]<12){whiteFreqs[2]++;}
-    else if(theseIndexes[g]<14){whiteFreqs[3]++;}
+    else if(theseIndexes[g]==8 || theseIndexes[g]==11){whiteFreqs[1]++;}
+    else if(theseIndexes[g]==9 || theseIndexes[g]==12){whiteFreqs[2]++;}
+    else if(theseIndexes[g]==10 || theseIndexes[g]==13){whiteFreqs[3]++;}
     else if(theseIndexes[g]===14){whiteFreqs[4]++;}
     else if(theseIndexes[g]===15){whiteFreqs[5]++;}
-    rect(100+g*200,30,200,200);
-    image(whitePieces[theseIndexes[g]],100+g*200,30,200,200);
+    rect(100+g*210,30,190,190);
+    image(whitePieces[theseIndexes[g]],100+g*210,30,190,190);
     showFreqs();
   }
 }
 
 function pickBlack(){
-  background(129, 30, 70);
+  background(bkg);
   var theseIndexes=getThreeDistinctRandomInts();
   var replacementIndex = getRandomInt();
   if(theseIndexes[0]<8 && theseIndexes[1]<8 && theseIndexes[2]<8){
@@ -141,31 +143,31 @@ function pickBlack(){
   fill(255)
   for(var g=0;g<3;g++){
     if(theseIndexes[g]<8){blackFreqs[0]++;}
-    else if(theseIndexes[g]<10){blackFreqs[1]++;}
-    else if(theseIndexes[g]<12){blackFreqs[2]++;}
-    else if(theseIndexes[g]<14){blackFreqs[3]++;}
+    else if(theseIndexes[g]==8 || theseIndexes[g]==11){blackFreqs[1]++;}
+    else if(theseIndexes[g]==9 || theseIndexes[g]==12){blackFreqs[2]++;}
+    else if(theseIndexes[g]==10 || theseIndexes[g]==13){blackFreqs[3]++;}
     else if(theseIndexes[g]===14){blackFreqs[4]++;}
     else if(theseIndexes[g]===15){blackFreqs[5]++;}
-    rect(100+g*200,300,200,200);
-    image(blackPieces[theseIndexes[g]],100+g*200,300,200,200);
+    rect(100+g*210,300,190,190);
+    image(blackPieces[theseIndexes[g]],100+g*210,300,190,190);
     showFreqs();
   }
 }
 
 function showFreqs(){
-  fill(190);
+  fill(160);
   stroke(200,90,60);
   rect(920,5,250,550,8);
   textSize(20);
   noStroke();
-  var boardIndexes=[0,8,10,12,14,15];
+  var boardIndexes=[0,8,9,10,14,15];
   for(t=0;t<boardIndexes.length;t++){
     image(whitePieces[boardIndexes[t]],1000,20+36*t,36,36);
     image(blackPieces[boardIndexes[t]],1000,290+36*t,36,36);
     fill(0);
     text(blackFreqs[t],1050,315+36*t);
     fill(255);
-    text(whiteFreqs[t],1050,45+36*t);  
+    text(whiteFreqs[t],1050,45+36*t);
   }
 }
 
@@ -180,7 +182,7 @@ function touchEnded() {
   
 }
 
-function keyTyped() {     
+function keyTyped() {
   if (key === ' '){
     started=true;
     if(whitesTurn){pickBlack(); whitesTurn=false;}
